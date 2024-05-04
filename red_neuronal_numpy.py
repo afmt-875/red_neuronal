@@ -75,9 +75,9 @@ def entrenamiento(epoch, X, Y, red_neuronal, lr=0.01):
 
 N = 250
 
-datos_brasilia = circulo(num_datos=N, R=1.5, latitud=-15.7801, longitud=-47.9292)
-datos_kazajistan = circulo(num_datos=N, R=1, latitud=48.0196, longitud=66.9237)
-X = np.concatenate([datos_brasilia, datos_kazajistan])
+datos_newyork = circulo(num_datos=N, R=1.5, latitud=40.452699, longitud= -73.581619)
+datos_auckland = circulo(num_datos=N, R=1, latitud=-36.848461, longitud= 174.763336)
+X = np.concatenate([datos_newyork,datos_auckland ])
 X = np.round(X, 3)
 print ("x", X)
 
@@ -95,6 +95,7 @@ for paso in list(range(len(neuronas) - 1)):
 
 error = []
 predicciones = []
+
 for epoch in range(0, 1000):
     ronda = entrenamiento(epoch, X=X, Y=Y, red_neuronal=red_neuronal, lr=0.001)
     predicciones.append(ronda)
